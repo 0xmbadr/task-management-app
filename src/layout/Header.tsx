@@ -9,12 +9,12 @@ interface HeaderProps {
 const Header = ({ colorTheme }: HeaderProps) => {
   const LogoImage = colorTheme === 'dark' ? LightLogo : DarkLogo;
   return (
-    <div className="Header">
+    <header className="Header">
       <picture className="Header__logo">
         <source srcSet={MobileLogo} media="(max-width: 767px)" />
         <img src={LogoImage} />
       </picture>
-    </div>
+    </header>
   );
 };
 
