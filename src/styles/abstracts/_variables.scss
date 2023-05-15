@@ -17,4 +17,16 @@ $mediumGrayGradient: linear-gradient(to bottom, rgba(121, 132, 147, 0.2),rgba(13
 $darkBlueOpacity: rgba(99, 95, 199,0.25);
 
 
-$margin-large: 2rem; 
+$margin-large: 2rem;
+$margin-tiny: .5rem;
+$margin-small: 1rem;
+$margin-medium: 1.5rem;  
+
+$font-12: 0.75rem;
+$font-13: 0.8125rem;
+$font-15: 0.9375rem; 
+$font-18: 1.125rem; 
+$font-19: 1.1875rem;
+$font-23: 1.4375rem; 
+$font-24: clamp(1.2rem, 3vw, 1.5rem); 
+$font-30: 1.875rem; 

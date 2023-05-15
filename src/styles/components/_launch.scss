@@ -1,0 +1,9 @@
+.Launch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid getColor(borderLine);
+    width: 100%;
+    color: getColor(title);
+    padding: 0 $margin-large;
+}

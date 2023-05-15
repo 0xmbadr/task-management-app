@@ -1,3 +1,4 @@
+import Launch from '../components/Launch';
 import DarkLogo from './../assets/DarkLogo.svg';
 import LightLogo from './../assets/LightLogo.svg';
 import MobileLogo from './../assets/MobileLogo.svg';
@@ -14,6 +15,8 @@ const Header = ({ colorTheme }: HeaderProps) => {
         <source srcSet={MobileLogo} media="(max-width: 767px)" />
         <img src={LogoImage} />
       </picture>
+
+      <Launch />
     </header>
   );
 };
