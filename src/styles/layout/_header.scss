@@ -1,0 +1,14 @@
+.Header {
+    display: flex;
+    border: 1px darkblue dashed;
+    height: 6rem;
+    background-color: getColor(main);
+
+    &__logo {
+        min-width: 18.75rem;
+        padding: $margin-large 0 3.375rem $margin-large;
+        border-right: 1px solid getColor(borderLine); 
+        border-bottom: 1px solid getColor(borderLine);  
+        cursor: pointer;
+    }
+}

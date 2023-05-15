@@ -1,18 +1,11 @@
-import { useState } from 'react';
+import Header from './layout/Header';
 
 function App() {
-  const [colorTheme, setColorTheme] = useState('light');
-  const handleClick = () => {
-    if (colorTheme == 'light') {
-      setColorTheme('dark');
-    } else {
-      setColorTheme('light');
-    }
-  };
+  const colorTheme = 'light';
 
   return (
     <div className={`App ${colorTheme}`}>
-      <button onClick={() => handleClick()}>Toggle Theme</button>
+      <Header colorTheme={colorTheme} />
     </div>
   );
 }
