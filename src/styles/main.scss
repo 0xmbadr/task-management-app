@@ -1,5 +1,15 @@
-@use "./abstracts/index.scss" as *;
 
-body {
-    background-color: $red;
+
+@import './abstracts/variables';
+@import './abstracts/functions';
+@import './abstracts/mixins';
+
+@import './themes/dark';
+@import './themes/light';
+
+
+
+.App {
+    background-color: getColor(bg);
+    height: 100vh;
 }

@@ -1,0 +1,19 @@
+$light:(
+  bg: $lightGray,
+  scroll:$mediumGray,
+  borderLine:$lightGrayLine,
+  main: $white,
+  title: $black,
+  subTitle: $mediumGray,
+  board:$white,
+  themeSwitchBox: $lightGray,
+  addButton: $veryLightBlue,
+  ellipsis: $lightGrayLine,
+  checked: rgba(0,0,0,0.5),
+);
+
+.light {
+  @each $name, $color in $light{
+      --color-#{""+$name} : #{$color};
+  }
+};

@@ -1,0 +1,21 @@
+@use "./../abstracts/variables";
+
+$dark:(
+  bg:$veryDarkGray,
+  scroll:$darkGrayLine,
+  borderLine:$darkGrayLine,
+  main: $darkGray,
+  title: $white,
+  subTitle: $white,
+  board:$veryDarkGray,
+  themeSwitchBox: $veryDarkGray,
+  addButton: $white,
+  ellipsis: $veryDarkGray,
+  checked: rgba(255,255,255,0.5),
+);
+
+.dark {
+  @each $name, $color in $dark{
+      --color-#{""+$name} : #{$color};
+  }
+};
