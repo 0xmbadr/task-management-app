@@ -1,17 +1,21 @@
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 import { BiHide } from 'react-icons/bi';
+import Tab from './Tab';
 const SideNav = () => {
   const boards = [{ name: 'Playing Games' }, { name: 'Writing new Stories' }];
   return (
     <div className="SideNav">
       {/* SideNav TOP */}
       <div>
-        <div className="SideNav__head">ALL BOARDS 0</div>
+        <div className="SideNav__head">ALL BOARDS (0)</div>
 
-        <div>{boards.map((tab, index) => tab.name)}</div>
+        <div>
+          {boards.map((tab, index) => (
+            <Tab key={index} name={tab.name} />
+          ))}
+        </div>
+        <Tab addNew />
       </div>
-
-      <button>Create a new Board</button>
 
       {/* SideNav Bottom */}
       <div>

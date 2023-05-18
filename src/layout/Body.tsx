@@ -1,9 +1,11 @@
-import SideNav from '../components/standard/SideNav';
+import Board from '../components/Board';
+import SideNav from '../components/SideNav';
 
 const Body = () => {
   return (
-    <div>
+    <div className="Body">
       <SideNav />
+      <Board />
     </div>
   );
 };

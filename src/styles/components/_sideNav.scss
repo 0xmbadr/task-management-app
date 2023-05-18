@@ -1,3 +1,53 @@
 .SideNav {
-    border: 1px darkblue dashed;
+    height: 100%;
+    min-width: 18.75rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: $mediumGray;
+    background-color: getColor(main);
+
+    border-right: 1px solid getColor(borderLine);
+
+    padding-top: 1rem;
+    padding-bottom: $margin-large;
+
+    font-weight: bold;
+
+    &__head {
+        letter-spacing: 2.4px;
+        font-size: $font-12;
+        padding-left: $margin-large;
+        margin-bottom: $margin-small;
+    }
+
+    &__tab {
+        display: flex;
+        align-items: center;
+
+        padding-left: $margin-large;
+        padding-bottom: $margin-tiny;
+        padding-top: $margin-tiny;
+        margin-bottom:.2rem;
+
+        width: 17.25rem;
+        color: inherit;
+        
+        & > svg {
+            margin-right:$margin-small;
+            font-size: 1.3rem;
+        }
+        
+    }
+
+    &__addNew {
+        color:$darkBlue;
+        transition: opacity .1s ease-out;
+  
+        &:hover{
+            opacity: $hover;
+        }
+    }
 }
