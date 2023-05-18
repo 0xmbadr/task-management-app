@@ -28,10 +28,10 @@ const SideNav = () => {
           </button>
           <BsFillSunFill size={'1.3rem'} />
         </div>
-        <div className="SideNav__hide-button">
-          <BiHide />
-          Hide Sidebar
-        </div>
+        <button className="SideNav__hide-button">
+          <BiHide size={'1.3rem'} />
+          <span>Hide Sidebar</span>
+        </button>
       </div>
     </div>
   );

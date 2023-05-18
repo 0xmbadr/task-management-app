@@ -86,4 +86,19 @@
             }
         }
     }
+
+    &__hide-button {
+        font-size: $font-15;
+        color: $mediumGray;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: $margin-large;
+        margin-top: $margin-small ;
+        transition: opacity .1s ease-out;
+        
+        &:hover {
+            opacity: $hover;
+        }
+    }
 }
