@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'usehooks-ts';
 import Button from '../standard/Button';
 
 type BoardProps = {
@@ -5,7 +6,8 @@ type BoardProps = {
 };
 
 const Board = ({ hideSideNav }: BoardProps) => {
-  const onHide = hideSideNav ? 'Board__full' : '';
+  const IsMobile = useMediaQuery('(max-width: 767px)');
+  const onHide = hideSideNav || IsMobile ? 'Board__full' : '';
   return (
     <div className={`Board ${onHide} Board__empty`}>
       <p className="Board__empty-txt">

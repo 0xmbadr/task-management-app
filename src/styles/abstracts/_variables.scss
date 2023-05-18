@@ -1,3 +1,9 @@
+//device width
+$mobile-width: 767px;
+$tablet-width: 1023px;
+$desktop-width: 1024px;
+
+// colors
 $black: #000000;
 $white: #ffffff;
 $red:#EA5555;
@@ -16,12 +22,13 @@ $mediumGrayOpacity: rgba(130,143,163,0.4);
 $mediumGrayGradient: linear-gradient(to bottom, rgba(121, 132, 147, 0.2),rgba(130,143,163,0.1), rgba(130,143,163,0));
 $darkBlueOpacity: rgba(99, 95, 199,0.25);
 
-
+// spaces
 $margin-large: 2rem;
 $margin-tiny: .5rem;
 $margin-small: 1rem;
 $margin-medium: 1.5rem;  
 
+// fonts
 $font-12: 0.75rem;
 $font-13: 0.8125rem;
 $font-15: 0.9375rem; 
