@@ -6,11 +6,16 @@ import { useAppSelector } from '../../app/hooks';
 
 type SideNavProps = {
   handleThemeChange: () => void;
+  hideSideNav: boolean;
+  ToggleOnHide: () => void;
 };
 
-const SideNav = ({ handleThemeChange }: SideNavProps) => {
+const SideNav = ({
+  handleThemeChange,
+  hideSideNav,
+  ToggleOnHide,
+}: SideNavProps) => {
   const boards = [{ name: 'Playing Games' }, { name: 'Writing new Stories' }];
-  const [toggleOnHide, setToggleOnHide] = useState(false);
 
   const colorTheme = useAppSelector((state) => state.data.colorTheme);
   const [toggleThemeChange, setToggleThemeChange] = useState<boolean>(
@@ -22,7 +27,7 @@ const SideNav = ({ handleThemeChange }: SideNavProps) => {
     setToggleThemeChange((prev) => !prev);
   };
 
-  const onHide = toggleOnHide ? 'SideNav__hide' : '';
+  const onHide = hideSideNav ? 'SideNav__hide' : '';
   return (
     <div className={`SideNav ${onHide}`}>
       {/* SideNav TOP */}
@@ -52,9 +57,7 @@ const SideNav = ({ handleThemeChange }: SideNavProps) => {
           </button>
           <BsFillSunFill size={'1.3rem'} />
         </div>
-        <button
-          className="SideNav__hide-button"
-          onClick={() => setToggleOnHide(!toggleOnHide)}>
+        <button className="SideNav__hide-button" onClick={ToggleOnHide}>
           <BiHide size={'1.3rem'} />
           <span>Hide Sidebar</span>
         </button>

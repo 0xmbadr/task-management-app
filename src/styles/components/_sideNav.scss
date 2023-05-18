@@ -15,6 +15,7 @@
     padding-bottom: $margin-large;
 
     font-weight: bold;
+    transition: transform .2s ease;
 
     &__hide {
         transform: translateX(-100%);
