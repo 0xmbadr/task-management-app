@@ -1,10 +1,14 @@
 import Board from '../components/Board';
 import SideNav from '../components/SideNav';
 
-const Body = () => {
+type BodyProps = {
+  handleThemeChange: () => void;
+};
+
+const Body = ({ handleThemeChange }: BodyProps) => {
   return (
     <div className="Body">
-      <SideNav />
+      <SideNav handleThemeChange={handleThemeChange} />
       <Board />
     </div>
   );

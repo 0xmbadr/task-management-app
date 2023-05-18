@@ -5,7 +5,7 @@ interface DateState {
 }
 
 const initialState: DateState = {
-  colorTheme: 'light',
+  colorTheme: 'dark',
 };
 
 const dataSlice = createSlice({
