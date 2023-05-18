@@ -4,6 +4,20 @@
     min-width: 100%;
     position: absolute;
 
+    &__empty {
+        display: grid;
+        place-content: center;
+        left: 9.375rem;
+        
+        &-txt {
+            color: getColor(title);
+            margin-bottom: $margin-small;
+        }
+        &-btn {
+            display: flex;
+            justify-content: center;
+        }
+    }
     &__full {
         left: 0;
     }
