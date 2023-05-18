@@ -16,6 +16,10 @@
 
     font-weight: bold;
 
+    &__hide {
+        transform: translateX(-100%);
+    }
+
     // ! =====> SideNav TOP
 
     &__head {

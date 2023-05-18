@@ -1,10 +1,13 @@
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 import { BiHide } from 'react-icons/bi';
 import Tab from './Tab';
+import { useState } from 'react';
 const SideNav = () => {
   const boards = [{ name: 'Playing Games' }, { name: 'Writing new Stories' }];
+  const [toggleOnHide, setToggleOnHide] = useState(false);
+  const onHide = toggleOnHide ? 'SideNav__hide' : '';
   return (
-    <div className="SideNav">
+    <div className={`SideNav ${onHide}`}>
       {/* SideNav TOP */}
       <div>
         <div className="SideNav__head">ALL BOARDS (0)</div>
@@ -28,7 +31,9 @@ const SideNav = () => {
           </button>
           <BsFillSunFill size={'1.3rem'} />
         </div>
-        <button className="SideNav__hide-button">
+        <button
+          className="SideNav__hide-button"
+          onClick={() => setToggleOnHide(!toggleOnHide)}>
           <BiHide size={'1.3rem'} />
           <span>Hide Sidebar</span>
         </button>
