@@ -16,6 +16,8 @@
 
     font-weight: bold;
 
+    // ! =====> SideNav TOP
+
     &__head {
         letter-spacing: 2.4px;
         font-size: $font-12;
@@ -34,7 +36,7 @@
 
         width: 17.25rem;
         color: inherit;
-        
+
         & > svg {
             margin-right:$margin-small;
             font-size: 1.3rem;
@@ -48,6 +50,40 @@
   
         &:hover{
             opacity: $hover;
+        }
+    }
+
+    // ! =====> SideaNav Bottom
+
+    &__theme-mode {
+        display:flex;
+        background-color: getColor(themeSwitchBox); 
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 6px;
+        margin-left: $margin-medium;
+        width: 235px;
+        height: 48px;
+
+        &-toggle {
+            display: flex;
+            align-items: center;
+            margin: 0 26px;
+            width: 40px;
+            height: 20px;
+            background: $darkBlue;
+            border-radius: 12px;
+            position:relative;
+
+            &-ball {
+                position: absolute;
+                transition: left .2s ease;
+                width: 14px;
+                height: 14px;
+                background: $white;
+                border-radius: 25px;
+            }
         }
     }
 }

@@ -20,11 +20,13 @@ const SideNav = () => {
       {/* SideNav Bottom */}
       <div>
         <div className="SideNav__theme-mode">
-          <BsFillSunFill />
-          <button className="SideNav__theme-toggle">
-            <span className="SideNav__theme-toggle-ball"></span>
-          </button>
           <BsFillMoonStarsFill />
+          <button className="SideNav__theme-mode-toggle">
+            <span
+              className="SideNav__theme-mode-toggle-ball"
+              style={{ left: '55%' }}></span>
+          </button>
+          <BsFillSunFill size={'1.3rem'} />
         </div>
         <div className="SideNav__hide-button">
           <BiHide />
