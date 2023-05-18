@@ -20,7 +20,7 @@ const Body = ({ handleThemeChange }: BodyProps) => {
         hideSideNav={hideSideNav}
         ToggleOnHide={ToggleOnHide}
       />
-      <Board />
+      <Board hideSideNav={hideSideNav} />
 
       {hideSideNav && (
         <button onClick={ToggleOnHide} className="Body__SideNav__show-button">

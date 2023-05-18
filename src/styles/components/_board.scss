@@ -2,4 +2,9 @@
     left: 18.75rem;
     height: 100%;
     min-width: 100%;
+    position: absolute;
+
+    &__full {
+        left: 0;
+    }
 }
