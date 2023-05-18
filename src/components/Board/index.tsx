@@ -1,4 +1,4 @@
 const Board = () => {
-  return <div className="Board">Board</div>;
+  return <div className="Board">Board Section lies here!</div>;
 };
 export default Board;
