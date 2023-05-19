@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import { toggleTheme } from './app/slices/dataSlice';
+import Modals from './components/Modals';
 import Body from './layout/Body';
 import Header from './layout/Header';
 
@@ -17,6 +18,7 @@ function App() {
     <div className={`App ${colorTheme}`}>
       <Header colorTheme={colorTheme} />
       <Body handleThemeChange={handleColorTheme} />
+      <Modals />
     </div>
   );
 }
