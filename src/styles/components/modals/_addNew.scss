@@ -25,7 +25,7 @@
     }
 
     &__label {
-        // width: 100%;
+        width: 100%;
         display: flex;
         position: relative;
 
@@ -49,5 +49,22 @@
             font-weight: bold;
             color: $red;
         }
+
+        &  input {
+            width: 100%;
+            margin-bottom: $margin-tiny;
+            margin-right: $margin-tiny;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__list-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

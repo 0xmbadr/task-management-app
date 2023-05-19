@@ -3,8 +3,12 @@ import Button from '../standard/Button';
 import Modal from '../standard/Modal';
 import { IBoard, IColumn } from '../../@types/data';
 import { nanoid } from '@reduxjs/toolkit';
+import { ImCross } from 'react-icons/im';
+import { useDispatch } from 'react-redux';
+import { addBoard } from '../../app/slices/dataSlice';
 
 const AddBoard = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -41,19 +45,19 @@ const AddBoard = () => {
   });
 
   const onSubmit: SubmitHandler<IBoard> = (data) => {
-    console.log(data);
+    dispatch(addBoard(data));
   };
 
   const registerOptions = {
     name: {
       required: true,
       validate: (value: string | undefined) =>
-        !value?.includes('o') || 'name must not include o',
+        !value?.includes('ooooooo') || 'name must not include o',
     },
     columns: {
       required: true,
       validate: (value: string | undefined) =>
-        !value?.includes('o') || 'column name must not include o',
+        !value?.includes('oooooooo') || 'column name must not include o',
     },
   };
 
@@ -87,9 +91,9 @@ const AddBoard = () => {
         <div className="AddNew__wrapper">
           <p className="AddNew__subtitle">Column</p>
 
-          <ul>
+          <ul className="AddNew__list">
             {controlledFields.map((item: IColumn, index: number) => (
-              <li className="" key={item.id}>
+              <li className="AddNew__list-item" key={item.id}>
                 <label
                   className={`AddNew__label ${
                     errors.columns?.[index]?.name && 'AddNew__label--err'
@@ -112,13 +116,25 @@ const AddBoard = () => {
                     </span>
                   )}
                 </label>
+
+                {fields.length > 1 && (
+                  <button type="button" onClick={() => remove(index)}>
+                    <ImCross fill={'gray'} />
+                  </button>
+                )}
               </li>
             ))}
           </ul>
 
-          <Button small colorTheme style={{ marginTop: '0.5rem' }}>
-            + Add New Column
-          </Button>
+          {fields.length < 6 && (
+            <Button
+              small
+              colorTheme
+              style={{ marginTop: '0.5rem' }}
+              onClick={() => append({ id: nanoid(), name: '', tasks: [] })}>
+              + Add New Column
+            </Button>
+          )}
         </div>
         <div className="AddNew__wrapper">
           <Button small type="submit">
