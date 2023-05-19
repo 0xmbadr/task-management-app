@@ -7,6 +7,7 @@ import { ImCross } from 'react-icons/im';
 import { useDispatch } from 'react-redux';
 import { addBoard } from '../../app/slices/dataSlice';
 import { useAppSelector } from '../../app/hooks';
+import { closeModal } from './../../app/slices/modalSlice';
 
 const AddBoard = () => {
   // Store
@@ -50,6 +51,7 @@ const AddBoard = () => {
 
   const onSubmit: SubmitHandler<IBoard> = (data) => {
     dispatch(addBoard(data));
+    dispatch(closeModal());
   };
 
   // util fn
