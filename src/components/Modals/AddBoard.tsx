@@ -6,9 +6,13 @@ import { nanoid } from '@reduxjs/toolkit';
 import { ImCross } from 'react-icons/im';
 import { useDispatch } from 'react-redux';
 import { addBoard } from '../../app/slices/dataSlice';
+import { useAppSelector } from '../../app/hooks';
 
 const AddBoard = () => {
+  // Store
   const dispatch = useDispatch();
+  const boardItem = useAppSelector((state) => state.data.data);
+
   const {
     register,
     handleSubmit,
@@ -48,16 +52,27 @@ const AddBoard = () => {
     dispatch(addBoard(data));
   };
 
+  // util fn
+  const hasDuplicates = (
+    value = '',
+    index: number,
+    array: IColumn[] | undefined,
+  ) => {
+    if (!array) return;
+    const arr = array.map((i) => i.name);
+    if (arr.indexOf(value) !== index) {
+      return false;
+    }
+    return true;
+  };
+
   const registerOptions = {
     name: {
       required: true,
       validate: (value: string | undefined) =>
-        !value?.includes('ooooooo') || 'name must not include o',
-    },
-    columns: {
-      required: true,
-      validate: (value: string | undefined) =>
-        !value?.includes('oooooooo') || 'column name must not include o',
+        !boardItem.find(
+          (item) => item.name?.toLowerCase() == value?.toLowerCase(),
+        ) || 'This Board already exists',
     },
   };
 
@@ -99,10 +114,12 @@ const AddBoard = () => {
                     errors.columns?.[index]?.name && 'AddNew__label--err'
                   }`}>
                   <input
-                    {...register(
-                      `columns.${index}.name`,
-                      registerOptions.columns,
-                    )}
+                    {...register(`columns.${index}.name`, {
+                      required: true,
+                      validate: (value) =>
+                        hasDuplicates(value, index, watchFieldArrays) ||
+                        'This Column named is already in use',
+                    })}
                   />
                   {errors.columns?.[index]?.name?.type == 'validate' && (
                     <span className="AddNew__label--errTxt">
