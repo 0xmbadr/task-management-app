@@ -1,0 +1,35 @@
+.AddNew {
+    text-align: left;
+    width: 100%;
+    // display: flex;
+    // flex-direction: column;
+    @include inputStandard;
+
+
+    &__heading {
+        margin-bottom: $margin-small;
+    }
+
+    &__wrapper {
+        width: 100%;
+        margin-bottom: $margin-small;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__subtitle {
+        font-size: $font-12;
+        font-weight: bold;
+        color: getColor(subTitle);
+        margin-bottom: $margin-tiny;
+    }
+
+    &__label {
+        // width: 100%;
+        display: flex;
+
+        & input {
+          width: 100%;
+        }
+    }
+}

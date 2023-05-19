@@ -2,6 +2,7 @@
     width: 100%;
     height: 100%;
     background-color: $overlay;
+    display: flex;
     top: 0;
     left: 0;
     position: fixed;
@@ -21,11 +22,10 @@
     max-width: 30rem;
     max-height: 100%;
     border-radius: 10px;
-    background: color(main);
-    color: color(title);
+    background: getColor(main);
+    color: getColor(title);
     padding: $margin-large;
     animation: fadeIn .3s ease; 
-    border: 1px darkblue dashed;
     &__close {
         display: none;
         position: absolute;

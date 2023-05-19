@@ -12,4 +12,18 @@
     &:focus-visible {
         outline: 2px solid #dd9951;
     }
+
+    &--small {
+        font-size: $font-13;
+        padding:$margin-tiny $margin-small;
+    }
+
+    &--theme {
+        border-radius: 20px;
+        color:$darkBlue;
+        background: getColor(addButton);
+        &:hover {
+            opacity: .9;
+        }
+    }
 }
