@@ -27,9 +27,27 @@
     &__label {
         // width: 100%;
         display: flex;
+        position: relative;
 
         & input {
           width: 100%;
+        }
+        &--err input,
+        &--err input:focus,
+        &--err input:focus-visible {
+            border-color: $red;
+        }
+
+        &--errTxt {
+            position:absolute;
+            display: flex;
+            top:0;
+            bottom:0;
+            right: $margin-small;
+            align-items: center;
+            font-size: $font-12;
+            font-weight: bold;
+            color: $red;
         }
     }
 }
