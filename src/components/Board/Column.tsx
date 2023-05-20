@@ -1,4 +1,6 @@
 import { IColumn } from '../../@types/data';
+import { useAppDispatch } from '../../app/hooks';
+import { openModal } from '../../app/slices/modalSlice';
 import Card from './Card';
 
 interface ColumnsProps {
@@ -6,11 +8,21 @@ interface ColumnsProps {
   ballColor: number;
 }
 const Column = ({ columnData, ballColor }: ColumnsProps) => {
+  const dispatch = useAppDispatch();
   if (!columnData) {
     return (
       <div className="Column">
         <div className="Column__title">&nbsp;</div>
-        <button className="Column__addNew" onClick={() => {}}>
+        <button
+          className="Column__addNew"
+          onClick={() =>
+            dispatch(
+              openModal({
+                ModalType: 'EditBoard',
+                ModalDetail: { type: 'AddNewColumn' },
+              }),
+            )
+          }>
           + New Column
         </button>
       </div>

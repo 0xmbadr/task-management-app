@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface IModal {
   ModalType: string;
-  ModalDetail?: Record<string, never>;
+  ModalDetail?: Record<string, never> | any;
 }
 
 const initialState: IModal = {

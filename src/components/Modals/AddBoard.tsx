@@ -4,14 +4,13 @@ import Modal from '../standard/Modal';
 import { IBoard, IColumn } from '../../@types/data';
 import { nanoid } from '@reduxjs/toolkit';
 import { ImCross } from 'react-icons/im';
-import { useDispatch } from 'react-redux';
 import { addBoard, setCurrentTab } from '../../app/slices/dataSlice';
-import { useAppSelector } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { closeModal } from './../../app/slices/modalSlice';
 
 const AddBoard = () => {
   // Store
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const boardItem = useAppSelector((state) => state.data.data);
 
   const {
