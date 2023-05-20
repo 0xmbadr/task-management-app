@@ -14,10 +14,10 @@ const Launch = () => {
           </span>
         </button>
       ) : (
-        <h1>Board Title</h1>
+        <h1>Board Title lies here</h1>
       )}
 
-      {false && (
+      {true && (
         <Button
           onClick={() => {
             console.log('clicked');
