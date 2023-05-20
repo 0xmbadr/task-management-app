@@ -46,3 +46,26 @@ export const onEditBoard = (state: DataState, action: AnyAction) => {
     return { ...state, data: newState };
   } else throw console.error('onEdit board Error');
 };
+
+export const onAddTask = (state: DataState, action: AnyAction) => {
+  const { currentBoard, newTask } = action.payload;
+
+  const data = current(state.data);
+  const exist = data.find((item) => item.name === currentBoard);
+
+  if (exist) {
+    const targetBoardIndex = data.findIndex(
+      (item) => item.name === currentBoard,
+    );
+    const targetColumnIndex = exist.columns!.findIndex(
+      (item) => item.name == newTask.status,
+    );
+
+    const newState = produce(data, (draftState: any) => {
+      draftState[targetBoardIndex].columns[targetColumnIndex].tasks.push(
+        newTask,
+      );
+    });
+    return { ...state, data: newState };
+  } else throw console.error('addTask error');
+};
