@@ -1,13 +1,13 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { IBoard } from '../../@types/data';
-import { produce } from './../../../node_modules/immer';
-interface DateState {
+import { onAddBoard, onEditBoard } from '../actions/dataSliceActions';
+export interface DataState {
   colorTheme: 'light' | 'dark';
   data: IBoard[];
   currentTab: string;
 }
 
-const initialState: DateState = {
+const initialState: DataState = {
   colorTheme: 'light',
   data: [],
   currentTab: '',
@@ -18,16 +18,8 @@ const dataSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme: (state, action) => ({ ...state, colorTheme: action.payload }),
-    addBoard: (state, action) => {
-      const newBoard = action.payload;
-
-      const data = current(state.data);
-
-      const newState = produce(data, (draftState) => {
-        draftState.push(newBoard);
-      });
-      return { ...state, data: newState };
-    },
+    addBoard: (state, action) => onAddBoard(state, action),
+    editBoard: (state, action) => onEditBoard(state, action),
     setCurrentTab: (state, action) => {
       return { ...state, currentTab: action?.payload || '' };
     },
