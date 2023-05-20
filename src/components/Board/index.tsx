@@ -4,32 +4,38 @@ import { useDispatch } from 'react-redux';
 import { openModal } from '../../app/slices/modalSlice';
 import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../app/hooks';
+import Column from './Column';
+import { IColumn } from '../../@types/data';
 
 type BoardProps = {
   hideSideNav: boolean;
-  // currentTab: string;
-  // boards: IBoard[];
 };
 
 const Board = ({ hideSideNav }: BoardProps) => {
+  // store
   const dispatch = useDispatch();
   const boards = useAppSelector((state) => state.data.data);
-  const currentTab = useAppSelector((state) => state.data.currentTab);
+  const CurrentBoardName = useAppSelector((state) => state.data.currentTab);
 
+  // variables
+  const currentBoard = boards?.find((board) => board.name === CurrentBoardName);
   const IsMobile = useMediaQuery('(max-width: 767px)');
   const onHide = hideSideNav || IsMobile ? 'Board__full' : '';
 
-  const [data, setData] = useState(boards);
+  // state
+  const [data, setData] = useState(currentBoard);
+  console.log(data);
 
+  // hooks
   useEffect(() => {
-    setData(boards);
-  }, [boards]);
+    setData(currentBoard);
+  }, [currentBoard]);
 
-  if (data.length === 0) {
+  if (!currentBoard) {
     return (
       <div className={`Board ${onHide} Board__empty`}>
         <p className="Board__empty-txt">
-          This board is empty. Create a new column to get started.
+          This board is empty. Create a new Board to get started.
         </p>
         <div
           className="Board__empty-btn"
@@ -40,6 +46,12 @@ const Board = ({ hideSideNav }: BoardProps) => {
     );
   }
 
-  return <div className={`Board ${onHide}`}>{currentTab}</div>;
+  return (
+    <div className={`Board ${onHide}`}>
+      {data?.columns?.map((col: IColumn, index: number) => (
+        <Column columnData={col} />
+      ))}
+    </div>
+  );
 };
 export default Board;

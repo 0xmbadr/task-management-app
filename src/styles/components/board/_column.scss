@@ -1,0 +1,24 @@
+.Column {
+    border: 1px darkblue dashed;
+    width: 17.5rem;
+    height: 100%;
+    margin-right: $margin-large;
+
+    &__title {
+        color: $mediumGray;
+    }
+
+    &__addNew {
+        font-size: $font-24;
+        font-weight: bold;
+        color: $mediumGray;
+        background: $mediumGrayGradient;
+        border-radius: 6px;
+        transition: color .2s ease;
+        height: 100%;
+        width: 100%;   /**/
+        &:hover {
+            color: $darkBlue;
+        }
+    }
+}

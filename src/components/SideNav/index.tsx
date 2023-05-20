@@ -16,7 +16,6 @@ const SideNav = ({
   ToggleOnHide,
 }: SideNavProps) => {
   const boards = useAppSelector((state) => state.data.data);
-  console.log(boards);
 
   const colorTheme = useAppSelector((state) => state.data.colorTheme);
   const [toggleThemeChange, setToggleThemeChange] = useState<boolean>(
