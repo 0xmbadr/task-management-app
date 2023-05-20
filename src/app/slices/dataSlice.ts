@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice, current } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 import { IBoard } from '../../@types/data';
 import { produce } from './../../../node_modules/immer';
 interface DateState {
