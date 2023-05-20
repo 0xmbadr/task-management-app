@@ -16,6 +16,7 @@
 
     font-weight: bold;
     transition: transform .2s ease;
+    
 
     &__hide {
         transform: translateX(-100%);
@@ -41,22 +42,55 @@
 
         width: 17.25rem;
         color: inherit;
+        background-color: transparent;
+        z-index: 0;
+
+        position: relative;
 
         & > svg {
             margin-right:$margin-small;
             font-size: 1.3rem;
         }
-        
-    }
 
-    &__addNew {
-        color:$darkBlue;
-        transition: opacity .1s ease-out;
-  
-        &:hover{
-            opacity: $hover;
+        &::after {
+            transition: background-color .1s ease;
+            content: '';
+            z-index: -1;
+            display: flex;
+            background-color: transparent;
+            position:absolute;
+            left:0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0 25px 25px 0;
+        }
+
+        &--active {
+            color: $white;
+            &::after {
+                content: '';
+                background-color: $darkBlue;
+            }
+        }
+
+        &:hover:not(&--addNew, &--active){
+            color: $white;
+            &::after {
+                content: '';
+                background-color: $lightBlue;
+            }
+        }
+
+        &--addNew {
+            color:$darkBlue;
+            transition: opacity .1s ease-out;
+      
+            &:hover{
+                opacity: $hover;
+            }
         }
     }
+
 
     // ! =====> SideaNav Bottom
 

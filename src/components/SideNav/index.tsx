@@ -16,6 +16,7 @@ const SideNav = ({
   ToggleOnHide,
 }: SideNavProps) => {
   const boards = useAppSelector((state) => state.data.data);
+  console.log(boards);
 
   const colorTheme = useAppSelector((state) => state.data.colorTheme);
   const [toggleThemeChange, setToggleThemeChange] = useState<boolean>(
@@ -32,11 +33,13 @@ const SideNav = ({
     <div className={`SideNav ${onHide}`}>
       {/* SideNav TOP */}
       <div>
-        <div className="SideNav__head">ALL BOARDS (0)</div>
+        <div className="SideNav__head">
+          ALL BOARDS ({boards ? boards.length : 0})
+        </div>
 
         <div>
           {boards.map((tab, index) => (
-            <Tab key={index} name={tab.name} />
+            <Tab key={index} name={tab.name} defaultTab={index === 0} />
           ))}
         </div>
         <Tab addNew />

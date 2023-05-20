@@ -5,7 +5,7 @@ import { IBoard, IColumn } from '../../@types/data';
 import { nanoid } from '@reduxjs/toolkit';
 import { ImCross } from 'react-icons/im';
 import { useDispatch } from 'react-redux';
-import { addBoard } from '../../app/slices/dataSlice';
+import { addBoard, setCurrentTab } from '../../app/slices/dataSlice';
 import { useAppSelector } from '../../app/hooks';
 import { closeModal } from './../../app/slices/modalSlice';
 
@@ -51,6 +51,7 @@ const AddBoard = () => {
 
   const onSubmit: SubmitHandler<IBoard> = (data) => {
     dispatch(addBoard(data));
+    dispatch(setCurrentTab(data.name));
     dispatch(closeModal());
   };
 
