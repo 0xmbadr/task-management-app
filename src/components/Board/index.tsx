@@ -19,6 +19,9 @@ const Board = ({ hideSideNav }: BoardProps) => {
 
   // variables
   const currentBoard = boards?.find((board) => board.name === CurrentBoardName);
+  const columnsCount: number = currentBoard?.columns
+    ? currentBoard.columns.length
+    : 0;
   const IsMobile = useMediaQuery('(max-width: 767px)');
   const onHide = hideSideNav || IsMobile ? 'Board__full' : '';
 
@@ -49,8 +52,10 @@ const Board = ({ hideSideNav }: BoardProps) => {
   return (
     <div className={`Board ${onHide}`}>
       {data?.columns?.map((col: IColumn, index: number) => (
-        <Column columnData={col} />
+        <Column key={col.id} columnData={col} ballColor={index} />
       ))}
+
+      {columnsCount < 6 && <Column ballColor={3} columnData={undefined} />}
     </div>
   );
 };

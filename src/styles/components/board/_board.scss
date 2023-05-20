@@ -4,20 +4,33 @@
     min-width: 100%;
     position: absolute;
     display: flex;
+    color: $white;
+    transition: left .2s ease;
+    padding: $margin-medium $margin-large;
+    cursor: move;
     
     &__empty {
         display: grid;
         place-content: center;
         left: 9.375rem;
+        color: getColor(title);
+        cursor: default;
+
+        &:hover {
+            color: getColor($darkBlue);
+        }
         
         &-txt {
-            color: getColor(title);
             margin-bottom: $margin-small;
             text-align: center;
         }
         &-btn {
             display: flex;
             justify-content: center;
+
+            & > button {
+                max-width: fit-content;
+            }
         }
     }
     &__full {
