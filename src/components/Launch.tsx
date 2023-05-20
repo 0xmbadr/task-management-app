@@ -1,11 +1,14 @@
 import { useMediaQuery } from 'usehooks-ts';
 import Button from './standard/Button';
 import { FaChevronDown } from 'react-icons/fa';
-import { useAppSelector } from '../app/hooks';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
+import { openModal } from '../app/slices/modalSlice';
 
 const Launch = () => {
   const currentBoard = useAppSelector((state) => state.data.currentTab);
   const IsMobile = useMediaQuery('(max-width: 768px)');
+  const dispatch = useAppDispatch();
+
   return (
     <div className="Launch">
       {IsMobile ? (
@@ -21,9 +24,7 @@ const Launch = () => {
 
       {currentBoard && (
         <Button
-          onClick={() => {
-            console.log('clicked');
-          }}>
+          onClick={() => dispatch(openModal({ ModalType: 'AddNewTask' }))}>
           &nbsp; + Add New task &nbsp;
         </Button>
       )}

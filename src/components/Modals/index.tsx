@@ -1,13 +1,16 @@
 import { useAppSelector } from '../../app/hooks';
 import AddBoard from './AddBoard';
+import AddNewTask from './AddNewTask';
 import EditBoard from './EditBoard';
 
 const Modals = () => {
-  const modelType = useAppSelector((state) => state.modal.ModalType);
+  const modalType = useAppSelector((state) => state.modal.ModalType);
   return (
     <>
-      {modelType === 'AddBoard' && <AddBoard />}
-      {modelType === 'EditBoard' && <EditBoard />}
+      {modalType === 'AddBoard' && <AddBoard />}
+      {modalType === 'EditBoard' && <EditBoard />}
+
+      {modalType === 'AddNewTask' && <AddNewTask />}
     </>
   );
 };

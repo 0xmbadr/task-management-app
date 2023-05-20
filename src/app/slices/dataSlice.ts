@@ -9,12 +9,14 @@ export interface DataState {
   colorTheme: 'light' | 'dark';
   data: IBoard[];
   currentTab: string;
+  currentTabStatus: string[];
 }
 
 const initialState: DataState = {
   colorTheme: 'light',
   data: [],
   currentTab: '',
+  currentTabStatus: [],
 };
 
 const dataSlice = createSlice({
@@ -33,7 +35,7 @@ const dataSlice = createSlice({
   },
 });
 
-export const { toggleTheme, addBoard, editBoard, setCurrentTab } =
+export const { toggleTheme, addBoard, editBoard, addTask, setCurrentTab } =
   dataSlice.actions;
 
 export default dataSlice.reducer;
