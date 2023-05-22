@@ -20,3 +20,8 @@
     }
   }
 }
+
+@mixin boxShadow {
+  border: 1px solid color(bg);
+  box-shadow: 0 0 8px $cardShadow;
+}

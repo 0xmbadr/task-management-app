@@ -1,0 +1,85 @@
+.SelectDropDown {
+  display: flex;
+  width: 100%;
+  position: relative;
+  @include mobile {
+    margin-bottom: 2rem;
+  }
+
+  &__trigger {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: getColor(title);
+    font-size: $font-13;
+    background: transparent;
+    border-radius: 4px;
+    border: 2px solid $mediumGrayOpacity;
+    padding: $margin-tiny $margin-small;
+    text-transform: capitalize;
+    transition: border .2s ease;
+
+    &:focus {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-right: $margin-small;
+    }
+
+    &-text {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-right: $margin-small;
+    }
+
+    &-icon {
+        transition: transform .3s ease;
+    }
+  }
+
+  &__wrapper {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    height: fit-content;
+    top:0;
+    bottom: 0;
+    transform: translateY(3rem);
+    border-radius: 4px;
+    padding: $margin-small;
+    background: getColor(board);
+    animation: fadeIn .2s ease-in-out;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    @include boxShadow;
+  }
+
+  &__btn {
+    display: flex;
+    width: 100%;
+    padding:0;
+    color: $mediumGray;
+    font-size: $font-13;
+    text-transform: capitalize;
+    transition: all .2s ease;
+
+    &:not(:last-of-type) {
+        margin-bottom: $margin-tiny;
+    }
+
+    &:hover {
+        font-weight: bold;
+        color: getColor(title);
+    }
+
+    &-text {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+  }
+}

@@ -149,7 +149,7 @@ const AddNewTask = () => {
           )}
         </div>
 
-        <div className="AddNew__wrapper">
+        <div className="AddNew__wrapper AddNew__status">
           <p className="AddNew__subtitle">Status</p>
           <SelectDropDown
             status={boardStatus}
@@ -157,7 +157,7 @@ const AddNewTask = () => {
             onSetCurrentStatus={onSetCurrentStatus}
           />
         </div>
-        <div className="AddNew__wrapper AddNew__status">
+        <div className="AddNew__wrapper">
           <Button small type="submit">
             Create Task
           </Button>

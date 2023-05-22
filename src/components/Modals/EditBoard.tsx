@@ -2,7 +2,11 @@ import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { IBoard, IColumn } from '../../@types/data';
 import { nanoid } from '@reduxjs/toolkit';
-import { editBoard, setCurrentTab } from '../../app/slices/dataSlice';
+import {
+  editBoard,
+  setBoardStatus,
+  setCurrentTab,
+} from '../../app/slices/dataSlice';
 import { closeModal } from '../../app/slices/modalSlice';
 import Modal from '../standard/Modal';
 import { ImCross } from 'react-icons/im';
@@ -60,6 +64,7 @@ const EditBoard = () => {
   const onSubmit: SubmitHandler<IBoard> = (data) => {
     dispatch(editBoard({ currentBoard: currentBoardTab, newBoard: data }));
     dispatch(setCurrentTab(data.name));
+    dispatch(setBoardStatus(data.name));
     dispatch(closeModal());
   };
 
