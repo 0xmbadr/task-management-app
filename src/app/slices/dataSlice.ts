@@ -10,7 +10,7 @@ export interface DataState {
   colorTheme: 'light' | 'dark';
   data: IBoard[];
   currentTab: string;
-  currentTabStatus: string[];
+  currentTabStatus: string[] | any;
 }
 
 const initialState: DataState = {

@@ -7,6 +7,7 @@ import { addTask } from '../../app/slices/dataSlice';
 import Modal from '../standard/Modal';
 import { ImCross } from 'react-icons/im';
 import Button from '../standard/Button';
+import SelectDropDown from '../standard/SelectDropDown';
 
 const AddNewTask = () => {
   // Store
@@ -23,6 +24,7 @@ const AddNewTask = () => {
     handleSubmit,
     control,
     getValues,
+    setValue,
     formState: { errors },
   } = useForm<ITask>({
     defaultValues: {
@@ -40,6 +42,10 @@ const AddNewTask = () => {
     control,
     name: 'subtasks',
   });
+
+  const onSetCurrentStatus = (value: string) => {
+    setValue('status', value, { shouldValidate: true });
+  };
 
   const onSubmit: SubmitHandler<ITask> = (data) => {
     dispatch(addTask({ currentBoard: currentBoardTab, newTask: data }));
@@ -145,6 +151,11 @@ const AddNewTask = () => {
 
         <div className="AddNew__wrapper">
           <p className="AddNew__subtitle">Status</p>
+          <SelectDropDown
+            status={boardStatus}
+            currentStatus={status ? status : boardStatus[0]}
+            onSetCurrentStatus={onSetCurrentStatus}
+          />
         </div>
         <div className="AddNew__wrapper AddNew__status">
           <Button small type="submit">

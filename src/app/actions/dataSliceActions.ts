@@ -10,7 +10,7 @@ export const onSetBoardStatus = (state: DataState, action: AnyAction) => {
   const targetBoard = data.find((item) => item.name === currentBoardTab);
 
   const targetBoardStatusArr = targetBoard!.columns!.map((item) => item.name);
-  return { ...state, currentBoardStatus: targetBoardStatusArr };
+  return { ...state, currentTabStatus: targetBoardStatusArr };
 };
 
 export const onAddBoard = (state: DataState, action: AnyAction) => {
