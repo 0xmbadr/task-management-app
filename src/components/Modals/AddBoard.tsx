@@ -4,7 +4,11 @@ import Modal from '../standard/Modal';
 import { IBoard, IColumn } from '../../@types/data';
 import { nanoid } from '@reduxjs/toolkit';
 import { ImCross } from 'react-icons/im';
-import { addBoard, setCurrentTab } from '../../app/slices/dataSlice';
+import {
+  addBoard,
+  setBoardStatus,
+  setCurrentTab,
+} from '../../app/slices/dataSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { closeModal } from './../../app/slices/modalSlice';
 
@@ -51,6 +55,7 @@ const AddBoard = () => {
   const onSubmit: SubmitHandler<IBoard> = (data) => {
     dispatch(addBoard(data));
     dispatch(setCurrentTab(data.name));
+    dispatch(setBoardStatus(data.name));
     dispatch(closeModal());
   };
 

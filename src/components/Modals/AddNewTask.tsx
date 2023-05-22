@@ -144,6 +144,9 @@ const AddNewTask = () => {
         </div>
 
         <div className="AddNew__wrapper">
+          <p className="AddNew__subtitle">Status</p>
+        </div>
+        <div className="AddNew__wrapper AddNew__status">
           <Button small type="submit">
             Create Task
           </Button>

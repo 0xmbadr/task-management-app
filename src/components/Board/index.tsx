@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../app/hooks';
 import Column from './Column';
 import { IColumn } from '../../@types/data';
+import { setBoardStatus, setCurrentTab } from '../../app/slices/dataSlice';
 
 type BoardProps = {
   hideSideNav: boolean;
@@ -27,12 +28,20 @@ const Board = ({ hideSideNav }: BoardProps) => {
 
   // state
   const [data, setData] = useState(currentBoard);
-  console.log(data);
 
   // hooks
   useEffect(() => {
     setData(currentBoard);
-  }, [currentBoard]);
+
+    if (!currentBoard && boards.length !== 0) {
+      dispatch(setCurrentTab(boards[0].name));
+      dispatch(setBoardStatus(boards[0].name));
+    }
+
+    if (boards.length === 0) {
+      dispatch(setCurrentTab('No Board Found'));
+    }
+  }, [currentBoard, boards]);
 
   if (!currentBoard) {
     return (

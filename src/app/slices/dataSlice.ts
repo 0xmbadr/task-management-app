@@ -37,7 +37,13 @@ const dataSlice = createSlice({
   },
 });
 
-export const { toggleTheme, addBoard, editBoard, addTask, setCurrentTab } =
-  dataSlice.actions;
+export const {
+  toggleTheme,
+  addBoard,
+  editBoard,
+  addTask,
+  setCurrentTab,
+  setBoardStatus,
+} = dataSlice.actions;
 
 export default dataSlice.reducer;

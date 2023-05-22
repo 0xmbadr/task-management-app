@@ -26,7 +26,7 @@ const Modal = ({ children }: ModalProps) => {
   return (
     <div className="Overlay" onClick={() => dispatch(closeModal())}>
       <div className="Modal" onClick={(e) => e.stopPropagation()}>
-        <button className="Modal__close">
+        <button className="Modal__close" onClick={() => dispatch(closeModal())}>
           <ImCross />
         </button>
         {children}
