@@ -4,6 +4,7 @@ import {
   onAddBoard,
   onAddTask,
   onEditBoard,
+  onSetBoardStatus,
 } from '../actions/dataSliceActions';
 export interface DataState {
   colorTheme: 'light' | 'dark';
@@ -24,14 +25,15 @@ const dataSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme: (state, action) => ({ ...state, colorTheme: action.payload }),
+    setBoardStatus: (state, action) => onSetBoardStatus(state, action),
+    setCurrentTab: (state, action) => {
+      return { ...state, currentTab: action?.payload || '' };
+    },
     // Board
     addBoard: (state, action) => onAddBoard(state, action),
     editBoard: (state, action) => onEditBoard(state, action),
     // Task
     addTask: (state, action) => onAddTask(state, action),
-    setCurrentTab: (state, action) => {
-      return { ...state, currentTab: action?.payload || '' };
-    },
   },
 });
 

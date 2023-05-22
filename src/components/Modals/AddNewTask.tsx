@@ -1,7 +1,7 @@
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { nanoid } from '@reduxjs/toolkit';
-import { IBoard, ISubTask, ITask } from '../../@types/data';
+import { ISubTask, ITask } from '../../@types/data';
 import { closeModal } from '../../app/slices/modalSlice';
 import { addTask } from '../../app/slices/dataSlice';
 import Modal from '../standard/Modal';

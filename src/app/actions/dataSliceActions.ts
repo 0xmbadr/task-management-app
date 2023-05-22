@@ -3,6 +3,16 @@ import produce from 'immer';
 import { IColumn, ITask } from '../../@types/data';
 import { DataState } from '../slices/dataSlice';
 
+export const onSetBoardStatus = (state: DataState, action: AnyAction) => {
+  const data = current(state.data);
+  const currentBoardTab = action.payload;
+
+  const targetBoard = data.find((item) => item.name === currentBoardTab);
+
+  const targetBoardStatusArr = targetBoard!.columns!.map((item) => item.name);
+  return { ...state, currentBoardStatus: targetBoardStatusArr };
+};
+
 export const onAddBoard = (state: DataState, action: AnyAction) => {
   const newBoard = action.payload;
 
